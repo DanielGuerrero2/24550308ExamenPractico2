@@ -8,7 +8,10 @@ public class Main {
         System.out.println("Bienvenido al juego de piedra, papel o tijera");
 
         boolean play = true;
-        int counterWins = 0;
+        int counterWins = 0; //contador de veces que el usuario gana
+        int draws = 0;  //contador de empates
+        int losses = 0; //contador de veces que el usuario pierde
+
 
         //Si el usuario quiere seguir jugando  se seguira ejecutando el juego
         while(play)
@@ -30,9 +33,10 @@ public class Main {
                     if (selectionMachine == 1) {
                         System.out.println("La máquina eligió piedra");
                         System.out.println("Empate");
+                        draws++;
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
-
+                        losses++;
                         System.out.println("Perdiste");
                     } else {
                         System.out.println("La máquina eligió tijera");
@@ -48,10 +52,12 @@ public class Main {
                         System.out.println("Ganaste");
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
+                        draws++;
+
                         System.out.println("Empate");
                     } else {
                         System.out.println("La máquina eligió tijera");
-
+                        losses++;
                         System.out.println("Perdiste");
                     }
                     break;
@@ -60,12 +66,14 @@ public class Main {
                     if (selectionMachine == 1) {
                         System.out.println("La máquina eligió piedra");
                         System.out.println("Perdiste");
+                        losses++;
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
                         counterWins++;
                         System.out.println("Ganaste");
                     } else {
                         System.out.println("La máquina eligió tijera");
+                        draws++;
                         System.out.println("Empate");
                     }
                     break;
@@ -84,6 +92,9 @@ public class Main {
             }
         }
         System.out.println("Gracias por jugar");
+        System.out.println("jugaste un total de: " + (counterWins + draws + losses) + " veces");
+        System.out.println("Veces que empataron: " + draws);
+        System.out.println("Veces que perdiste: " + losses);
         System.out.println("Veces que ganaste: " + counterWins);
     }
 }
