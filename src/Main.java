@@ -8,16 +8,22 @@ public class Main {
         System.out.println("Bienvenido al juego de piedra, papel o tijera");
 
         boolean play = true;
+        int counterWins = 0;
+
         //Si el usuario quiere seguir jugando  se seguira ejecutando el juego
         while(play)
         {
+
+
             System.out.println("Elije una opción: ");
             System.out.println("1. Piedra");
             System.out.println("2. Papel");
             System.out.println("3. Tijera");
             System.out.println("4. Salir");
             int option = scanner.nextInt();
+            //La maquina elige una opcion aleatoria entre 1 y 3
             int selectionMachine = (int) (Math.random() * 3) + 1;
+
             switch (option) {
                 case 1:
                     System.out.println("Elegiste piedra");
@@ -26,9 +32,11 @@ public class Main {
                         System.out.println("Empate");
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
+
                         System.out.println("Perdiste");
                     } else {
                         System.out.println("La máquina eligió tijera");
+                        counterWins++;
                         System.out.println("Ganaste");
                     }
                     break;
@@ -36,12 +44,14 @@ public class Main {
                     System.out.println("Elegiste papel");
                     if (selectionMachine == 1) {
                         System.out.println("La máquina eligió piedra");
+                        counterWins++;
                         System.out.println("Ganaste");
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
                         System.out.println("Empate");
                     } else {
                         System.out.println("La máquina eligió tijera");
+
                         System.out.println("Perdiste");
                     }
                     break;
@@ -52,6 +62,7 @@ public class Main {
                         System.out.println("Perdiste");
                     } else if (selectionMachine == 2) {
                         System.out.println("La máquina eligió papel");
+                        counterWins++;
                         System.out.println("Ganaste");
                     } else {
                         System.out.println("La máquina eligió tijera");
@@ -72,5 +83,7 @@ public class Main {
                 play = false;
             }
         }
+        System.out.println("Gracias por jugar");
+        System.out.println("Veces que ganaste: " + counterWins);
     }
 }
